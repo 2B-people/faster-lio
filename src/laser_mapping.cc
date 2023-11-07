@@ -783,8 +783,9 @@ void LaserMapping::PublishFrameEffectWorld(const ros::Publisher &pub_laser_cloud
 }
 
 void LaserMapping::Savetrajectory(const std::string &traj_file) {
-    std::ofstream ofs;
-    ofs.open(traj_file, std::ios::out);
+    std::ofstream ofs(traj_file, std::ios::app);
+    ofs.setf(std::ios::fixed, std::ios::floatfield);
+    // ofs.open(traj_file, std::ios::out);
     if (!ofs.is_open()) {
         LOG(ERROR) << "Failed to open traj_file: " << traj_file;
         return;
