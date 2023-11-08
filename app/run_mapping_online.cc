@@ -16,7 +16,7 @@ void SigHandle(int sig) {
 }
 
 int main(int argc, char **argv) {
-    FLAGS_stderrthreshold = google::INFO;
+    FLAGS_stderrthreshold = google::WARNING;
     FLAGS_colorlogtostderr = true;
     google::InitGoogleLogging(argv[0]);
     google::ParseCommandLineFlags(&argc, &argv, true);
